@@ -8,35 +8,17 @@
 <title>Untitled Document</title>
 
 </head>
-<body> 
-<!--
-	<div class="hex-container">
-		<div class="hex-element" id="hex-element"> </div>	
+<body>
+	<div class="main">
+		<div class="wrapper">
+			<div class="svg-hex-box" id="svg-hex-box">
+				<div class="svg-hex" id="svg-hex"></div>
+				<div class="icon"></div>
+			</div>	
+		</div>
 	</div>
--->
-	<div class="main"><div class="wrapper">
-		<div class="svg-hex-box" id="svg-hex-box"><div class="svg-hex" id="svg-hex"></div><div class="icon"></div></div>	
-	</div></div>
-<!--	<div class="svg-hex-box" id="svg-hex-box-2"><div class="svg-hex visible" id="svg-hex-2"></div><div class="icon"></div></div>-->
-<!--
-		<svg width="640" height="480" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" id="hexagon">
-			<defs>
-				<mask id="hex-mask">
-				<polygon fill="none" points="276.1128234863281,134 213.05642700195312,243.2169189453125 86.94358825683594,243.2169189453125 23.887176513671875,134 86.94358825683594,24.78308868408203 213.05642700195312,24.78308868408203 276.1128234863281,134 " stroke="#000" stroke-width="10" />
-				</mask>
-			</defs>
-		</svg>
--->
-
 </body>
 <script>
-//	var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-//	var mask = document.querySelector('mask');
-//	svg.innerHTML = mask.innerHTML;
-//	var str = new XMLSerializer().serializeToString(svg);
-//	str = 'data:image/svg+xml;charset=utf8,' + encodeURIComponent(str);
-//	var div = document.getElementById('svg-hex');
-//	div.style.webkitMaskImage = 'url('+str+')';
 	let item = document.getElementById('svg-hex-box');
 	let itemParent = document.getElementById('svg-hex-box');
 	console.log(item);
@@ -52,10 +34,6 @@
 		item.classList.remove('active');
 		item.classList.add('inactive');
 		console.log('mouse is out');	
-		// force dom update
-//		itemParent.style.display='none';
-//		itemParent.style.display='inline-block';
-		
 		item.classList.remove('active');
 	});
 	function onanimationend() {
@@ -64,31 +42,3 @@
 	};
 </script>
 </html>
-
-<!--
-<script>
-		window.addEventListener("load", MyFunction);
-		function sleep(milliseconds) {
-			const date = Date.now();
-			let currentDate = null;
-			do {
-				currentDate = Date.now();
-			} while (currentDate - date < milliseconds);
-		}
-		function MyFunction() {
-		var animationDuration = 0.3;
-		for (let i = 0; i < 6; i++) {
-			var newSide = document.createElement("div");
-			newSide.classList.add("hex");
-			newSide.style.transform = "rotate(" + (-60 - i* 60) +"deg)";
-//			newSide.style.animation = "unfold " + animationDuration + "s linear";
-//			sleep(300);
-//			newSide.style.animation-delay = toString(animationDuration * i) + "s";
-			document.getElementById('hex-element').appendChild(newSide);
-//			console.log("<div class=\"hex\" style=\"--i:" + i + ";\"> </div>")
-//			element.innerHTML += "<div class=\"hex\" style=\"--i:" + i + ";\"> </div>";
-		}
-		}
-
-	</script>
--->
