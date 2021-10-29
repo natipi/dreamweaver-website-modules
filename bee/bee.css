@@ -1,0 +1,145 @@
+:root {
+  --hex-side-dim:64px;
+  --background-color: white;
+  --hex-color: #DB9D02;
+  --hex-height: 65vh; }
+
+body {
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: blue;
+  background: radial-gradient(30% 55.51% at 50% 70%, transparent 0%, rgba(255, 211, 200, 0.04) 100%), radial-gradient(30% 80% at 94% 4%, #FFFAD5 0%, rgba(230, 245, 255, 0) 70%), radial-gradient(44% 80% at 4% 6%, #FFD9B7 0%, rgba(225, 225, 234, 0) 100%), var(--background-color); }
+
+@keyframes unfold {
+  0% {
+    transform: scaleX(0); }
+  50% {
+    transform: scaleX(0.5); }
+  100% {
+    transform: scaleX(1); } }
+.hex-container {
+  margin-top: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  width: calc(2 * var(--hex-side-dim));
+  height: calc(2 * var(--hex-side-dim)); }
+  .hex-container .hex-element {
+    margin-left: calc(0.5* var(--hex-side-dim)); }
+  .hex-container .hex {
+    background-color: transparent;
+    content: '';
+    position: fixed;
+    z-index: 1;
+    height: calc(2* 0.86602540378 * var(--hex-side-dim));
+    width: var(--hex-side-dim);
+    border-style: solid;
+    border-width: 5px;
+    border-top-color: var(--hex-color);
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-radius: 5px;
+    border-bottom-color: transparent;
+    animation: unfold 0.3s linear; }
+  .hex-container:hover .hex {
+    animation: unfold 0.3s linear; }
+
+.main {
+  height: 100%;
+  width: 100%;
+  display: table; }
+
+.wrapper {
+  display: table-cell;
+  height: 100%;
+  vertical-align: middle; }
+
+.svg-hex-box {
+  height: var(--hex-height);
+  width: var(--hex-height);
+  margin: auto; }
+  .svg-hex-box .svg-hex {
+    height: var(--hex-height);
+    width: var(--hex-height);
+    position: absolute;
+    background-color: var(--hex-color);
+    -webkit-mask: url("hexagon.svg");
+    -webkit-mask-size: contain;
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-clip-path: polygon(17% 0%, 50% 50%, 17% 0.1%, 0% 0%);
+    mask: url("hexagon.svg");
+    mask-size: contain;
+    mask-position: center;
+    max-repeat: no-repeat;
+    clip-path: polygon(17% 0%, 50% 50%, 17% 0.1%, 0% 0%);
+    transition: all 0.3s linear; }
+    .svg-hex-box .svg-hex.visible {
+      clip-path: none;
+      -webkit-clip-path: none; }
+  .svg-hex-box.active .svg-hex {
+    animation: unravel 0.5s linear;
+    clip-path: none;
+    -webkit-clip-path: none; }
+  .svg-hex-box.inactive .svg-hex {
+    animation: ravel 0.5s linear; }
+  .svg-hex-box .icon {
+    content: '';
+    height: var(--hex-height);
+    width: var(--hex-height);
+    -webkit-transform: scale(0.6, 0.6);
+    -moz-transform: scale(0.6, 0.6);
+    transform: scale(0.6, 0.6);
+    z-index: 2;
+    background-color: var(--hex-color);
+    -webkit-mask-image: url("https://lh3.googleusercontent.com/proxy/p-cp4woK4qSFrYv2w_OHkfgb1iV7j9DdlLdl13Jr8GGu9BEDzZH-OnBgNiuBeCzGM9G4ND5gdgoRIg5W57l2K2ulYNVnAEm-EwbHh-ladXPmJvQPpb1DT2k6hSAGqDw");
+    -webkit-mask-size: contain;
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-image: url("https://lh3.googleusercontent.com/proxy/p-cp4woK4qSFrYv2w_OHkfgb1iV7j9DdlLdl13Jr8GGu9BEDzZH-OnBgNiuBeCzGM9G4ND5gdgoRIg5W57l2K2ulYNVnAEm-EwbHh-ladXPmJvQPpb1DT2k6hSAGqDw");
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat; }
+
+@keyframes unravel {
+  0% {
+    -webkit-clip-path: polygon(21% 0%, 50% 50%, 0% 0.1%, 0% 0%);
+    clip-path: polygon(21% 0%, 50% 50%, 0% 0.1%, 0% 0%); }
+  12% {
+    -webkit-clip-path: polygon(21% 0%, 50% 50%, 0% 50%, 0% 0%); }
+  25% {
+    -webkit-clip-path: polygon(21% 0%, 50% 50%, 0% 100%, 0% 0%); }
+  37% {
+    -webkit-clip-path: polygon(21% 0%, 50% 50%, 50% 100%, 0% 100%, 0% 0%); }
+  50% {
+    -webkit-clip-path: polygon(21% 0%, 50% 50%, 100% 100%, 0% 100%, 0% 0%); }
+  62% {
+    -webkit-clip-path: polygon(21% 0%, 50% 50%, 100% 50%, 100% 100%, 0% 100%, 0% 0%); }
+  75% {
+    -webkit-clip-path: polygon(21% 0%, 50% 50%, 100% 0%, 100% 100%, 0% 100%, 0% 0%); }
+  87% {
+    -webkit-clip-path: polygon(21% 0%, 50% 50%, 50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%); }
+  100% {
+    -webkit-clip-path: polygon(21% 0%, 50% 50%, 0.1% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%); } }
+@keyframes ravel {
+  0% {
+    -webkit-clip-path: polygon(21% 0%, 50% 50%, 0.1% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%); }
+  12% {
+    -webkit-clip-path: polygon(21% 0%, 50% 50%, 50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%); }
+  25% {
+    -webkit-clip-path: polygon(21% 0%, 50% 50%, 100% 0%, 100% 100%, 0% 100%, 0% 0%); }
+  37% {
+    -webkit-clip-path: polygon(21% 0%, 50% 50%, 100% 50%, 100% 100%, 0% 100%, 0% 0%); }
+  50% {
+    -webkit-clip-path: polygon(21% 0%, 50% 50%, 100% 100%, 0% 100%, 0% 0%); }
+  62% {
+    -webkit-clip-path: polygon(21% 0%, 50% 50%, 50% 100%, 0% 100%, 0% 0%); }
+  75% {
+    -webkit-clip-path: polygon(21% 0%, 50% 50%, 0% 100%, 0% 0%); }
+  87% {
+    -webkit-clip-path: polygon(21% 0%, 50% 50%, 0% 50%, 0% 0%); }
+  100% {
+    -webkit-clip-path: polygon(21% 0%, 50% 50%, 0% 0.1%, 0% 0%);
+    clip-path: polygon(21% 0%, 50% 50%, 0% 0.1%, 0% 0%); } }
