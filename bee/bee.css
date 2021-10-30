@@ -2,7 +2,7 @@
   --hex-side-dim:64px;
   --background-color: white;
   --hex-color: #DB9D02;
-  --hex-height: 65vh; }
+  --hex-height: min(65vh,65vw); }
 
 body {
   align-content: center;
@@ -12,6 +12,16 @@ body {
   width: 100vw;
   background-color: blue;
   background: radial-gradient(30% 55.51% at 50% 70%, transparent 0%, rgba(255, 211, 200, 0.04) 100%), radial-gradient(30% 80% at 94% 4%, #FFFAD5 0%, rgba(230, 245, 255, 0) 70%), radial-gradient(44% 80% at 4% 6%, #FFD9B7 0%, rgba(225, 225, 234, 0) 100%), var(--background-color); }
+
+.main {
+  height: 100%;
+  width: 100%;
+  display: table; }
+
+.wrapper {
+  display: table-cell;
+  height: 100%;
+  vertical-align: middle; }
 
 .svg-hex-box {
   height: var(--hex-height);
@@ -51,11 +61,11 @@ body {
     transform: scale(0.6, 0.6);
     z-index: 2;
     background-color: var(--hex-color);
-    -webkit-mask-image: url("https://lh3.googleusercontent.com/proxy/p-cp4woK4qSFrYv2w_OHkfgb1iV7j9DdlLdl13Jr8GGu9BEDzZH-OnBgNiuBeCzGM9G4ND5gdgoRIg5W57l2K2ulYNVnAEm-EwbHh-ladXPmJvQPpb1DT2k6hSAGqDw");
+    -webkit-mask-image: url("bee.png");
     -webkit-mask-size: contain;
     -webkit-mask-position: center;
     -webkit-mask-repeat: no-repeat;
-    mask-image: url("https://lh3.googleusercontent.com/proxy/p-cp4woK4qSFrYv2w_OHkfgb1iV7j9DdlLdl13Jr8GGu9BEDzZH-OnBgNiuBeCzGM9G4ND5gdgoRIg5W57l2K2ulYNVnAEm-EwbHh-ladXPmJvQPpb1DT2k6hSAGqDw");
+    mask-image: url("bee.png");
     mask-size: contain;
     mask-position: center;
     mask-repeat: no-repeat; }

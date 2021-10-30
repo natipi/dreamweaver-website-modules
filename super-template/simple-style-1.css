@@ -1,0 +1,85 @@
+/* CSS Document */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Roboto+Condensed:ital,wght@0,700;1,400&family=Zen+Kaku+Gothic+New:wght@300&display=swap');
+
+:root {
+  --navbar-height:64px;
+  --navitem-height:64px;
+  --navbar-margin:8px;
+}
+.super-navbar, .notion-navbar, .notion-navbar__content {
+  background-color:transparent !important;
+  height:var(--navbar-height) !important;
+}
+
+.notion-header.page {
+  background-color:orange;
+  margin-bottom: 0 !important;
+  top: 0!important;
+  height:100vh;
+  position:absolute !important;
+  
+    bottom: 0 !important;
+    margin: 0 !important;
+    left: 0 !important;
+    top: 0 !important;
+    
+
+}
+
+.notion-header__content.has-cover.no-icon {
+  position:absolute !important;
+  z-index:2;
+  top:0 !important;
+}
+
+
+.notion-header__title-wrapper {
+  display:table-cell !important;
+  vertical-align: middle !important;
+  height: 100%!important;
+  width:100% !important;
+  position:absolute;
+  top:var(--navbar-height);
+  margin-top:0 !important; /* move title up to be right next to the image */
+  overflow: show;
+  text-align: left;
+}
+
+.notion-header__title {
+  	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 120px;
+	/*white-space: overflow-wrap;*/
+	line-height: 100px!important;
+	font-weight:700;
+	color:transparent;
+	-webkit-text-stroke-width: 2px;
+	/*text-shadow: 10px 10px 0px rgba(255,255,255,0.5);*/
+	-webkit-text-stroke-color: white;	
+}
+
+
+.super-content {
+  background-color: pink;
+  position:absolute;
+  margin-top:100vh !important;
+  transform: '' !important;
+}
+.notion-header__cover-image,.notion-header__cover {
+    max-height: 100% !important;
+    height: 100% !important;}
+
+.notion-page {
+  background-color:blue;
+}
+
+.super-navbar__content {
+  margin-top:0 !important;
+}
+
+.super-navbar__item {
+  height:var(--navbar-height);
+  width: var(--navbar-height);
+  border-radius: calc(var(--navbar-height)*0.5);
+  background-color:black;
+}
