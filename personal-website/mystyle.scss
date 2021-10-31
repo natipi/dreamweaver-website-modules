@@ -40,6 +40,8 @@ body {
 	background-image: linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%);
 //	background-color: #f8f9d2;
 //	background-image: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%);
+//	background-color: #f1dfd1;
+//	background-image: linear-gradient(315deg, #f1dfd1 0%, #f6f0ea 74%);
 	background-attachment: fixed;
     -webkit-animation: fadeIn 1s;
     -moz-animation: fadeIn 1s;
@@ -47,6 +49,8 @@ body {
 	align-content: center;
 	color: var(--text-color);
 	transition: color 0.3s ease;
+	padding:0;
+	margin:0;
 }
 @keyframes fadeIn { 0% {  opacity: 0; } 100% { opacity: 1; } }
 @-moz-keyframes fadeIn { 0% {  opacity: 0; } 100% { opacity: 1; } }
@@ -249,6 +253,57 @@ p {
     line-height: 2.4;
 }
 
+
+.top-nav-wrapper {
+	width:100vw;
+//	background-color:blue;
+	background-color:transparent;
+	display:table;
+}
+
+.top-nav {
+	width:100vw;
+//	align-items:right;
+//	align-content: right;
+	display:table-cell;
+//	background-color:gray;
+	vertical-align: middle;
+	.top-nav-entry {
+//		position:absolute;
+//		float:right;
+		transform: translateX(80vw); //TO-DO: make this work on smaller screens
+		display: inline-block;
+		height: 20px;
+		width:50px;
+//		background-color:blue;
+		margin-right:calc(20px + 2vw);
+		padding:10px 20px 10px 20px;
+//		margin-top: 20px;
+		border: 1px solid #bbbbbb;
+		border-radius:50%;
+		text-align:center;
+		transition: all 0.3s cubic-bezier(0.8,0.04,0.4,1);
+		&:hover {
+			padding: 15px 25px 15px 25px;
+//			transform:scale(1.5);
+			margin-right:calc(10px + 2vw)
+		}
+	}
+	
+	
+	a {
+		font-family: quiche-sans;
+		font-size:12px;
+		font-weight: 100;
+		text-decoration:none;
+//		margin-top:20px;
+		color:rgba(0,0,0,0.7);
+		transition:color 0.3s ease;
+	}
+	a:hover{
+		color:black;
+	}
+}
 
 
 
