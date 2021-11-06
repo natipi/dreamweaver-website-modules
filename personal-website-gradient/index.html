@@ -46,38 +46,6 @@
 		let topshift = 0;
 		let vh = $(window).height();
 		let vw = $(window).width();
-		let ratio = vw / vh; 
-		let h1 = (0.7 * vh - top) / vh * 100; 
-		let h2 = (0.96 * vh - top) / vh * 100;
-		let h3 = 94;
-//		let h3 = (0.94 * vh - top) / vh * 100;
-		let h4 = (1.5 * vh - top) / vh * 100;
-		let w1 = 50; 
-		let w2 = 94;
-		let w3 = 4;
-		console.log(w1)
-		if (top > 150) {
-			topshift = top - 150;
-			h3 = (0.94 * vh + ((topshift - 300)^2 + 150^2) / 150)/vh * 100;
-			w1 = Math.min((.50 * vw + topshift * topshift / 150) / vw * 100, 90); 
-			w2 = Math.min((.94 * vw + topshift / 150) / vw * 100, 85);
-			w3 = Math.min((.04 * vw + topshift * topshift / 15) / vw * 100, 87);
-		}
-		if (top > 450) {
-			h1 = (0.7 * vh - 250) / vh * 100; 
-			h2 = (0.96 * vh - 250) / vh * 100;
-			h3 = (0.94 * vh - 250) / vh * 100;
-			h4 = (1.5 * vh - 250) / vh * 100;
-//			w1 = (.5 * vw + ratio * (top - 250)) / vw * 100; 
-//			w2 = (.94 * vw + ratio * (top - 250)) / vw * 100;
-//			w3 = (.05 * vw + ratio * (top - 250)) / vw * 100;
-		}
-		
-		let bg = `radial-gradient(30% 55.51% at ${w1}% ${h1}%, #FFD3C7 0%, rgba(255, 211, 200, 0.04) 100%),
-                radial-gradient(30% 80% at ${w2}% ${h2}%, #C8EAFF 0%, rgba(230, 245, 255, 0) 70%),
-                radial-gradient(44% 80% at ${w3}% ${h3}%, rgba(107, 110, 154, 0.8) 0%, rgba(225, 225, 234, 0) 100%), linear-gradient(white 0%, #FBF2F0 ${h4}%), #FFFFFF`
-		$("body").css("background", bg);
-		$("body").css("background-attachment", "fixed");
 
 		if (top < 100) {
 			$("#about").css("opacity", "1");
@@ -106,7 +74,7 @@
 </head>
 
 <body>
-<!--	<div class="gradient-ball" style="height:800px !important;width:600px !important;margin-top:-20vh;margin-left: 2vw;"> </div>-->
+	<div class="gradient-ball" style="height:800px !important;width:600px !important;margin-top:-20vh;margin-left: -10vw;"> </div>
 	<div class="top-nav-wrapper" style="height:var(--top-navbar-height)"><div class="top-nav"><div class="top-nav-entry active"><a href="">website</a></div><div class="top-nav-entry inactive"><a href="">blog</a></div></div></div>
 	<div class = ""></div>
 	<div class="main about" id="about">

@@ -22,7 +22,7 @@ p {
 /*-------------- FADE ANIMATION -------------*/
 /*-------------------------------------------*/
 body {
-  background-color: rgba(255, 235, 225, 0.65);
+  background: radial-gradient(30% 55.51% at 94% 96%, #FFD3C7 0%, rgba(255, 211, 200, 0.04) 100%), rgba(255, 235, 225, 0.65);
   background-attachment: fixed;
   -webkit-animation: fadeIn 1s;
   -moz-animation: fadeIn 1s;
@@ -333,7 +333,7 @@ p {
   background-image: url("gradient-images/grad1.png");
   background-size: cover;
   background-repeat: no-repeat;
-  filter: blur(60px);
+  filter: blur(80px);
   animation: rotate 50s linear infinite, cycle 73s linear infinite;
   opacity: 0.3; }
 
