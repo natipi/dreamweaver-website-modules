@@ -47,34 +47,39 @@
 		let vh = $(window).height();
 		let vw = $(window).width();
 
-		if (top < 100) {
-			$("#about").css("opacity", "1");
-			$("#about").css("transform", `translateY(0px) translateX(0px)`)
-		}
-		else if (top > 200) {
-			$("#about").css("opacity", "0");
+		if (top > 200) {
+			$("#about-content").removeClass("max-width");
+			$("#about-content").addClass("max-width-gone");
+			$("#about-content").fadeOut(500)
 		}
 		else {
-			$("#about").css("transform", `translateX(${top - 100}px)`);
-			$("#about").css("opacity", `${1 - (top - 40)/40}`);
+			$("#about-content").removeClass("max-width-gone");
+			$("#about-content").addClass("max-width");
+			$("#about-content").fadeIn(500)
 		}
 		
-		if (top < 150) {
-			$("#CV").css("opacity", "0")
+		if (top > 275) {
+			$("#the-ball").removeClass("large");
+			$("#the-ball").addClass("small");
 		}
-		else if (top < 250) {
-			$("#CV").css("transform", `translateX(${(top - 250)}px)`);
-			$("#CV").css("opacity", `${(top - 300)/100}`);
+		
+		if (top < 220) {
+			$("#include-CV").removeClass("max-width");
+			$("#include-CV").addClass("max-width-gone");
+			$("#include-CV").fadeOut(500)
 		}
-		else { 
-			$("#CV").css("opacity", "1")
+		else {
+			$("#include-CV").removeClass("max-width-gone");
+			$("#include-CV").addClass("max-width");
+			$("#include-CV").fadeIn(500)
 		}
 	});
 </script>
 </head>
 
 <body>
-	<div class="gradient-ball" style="height:100vw !important;width:100vw !important;margin-top:-30vh;margin-left: -20vw;"> </div>
+	<div class="single-gradient"></div>
+	<div class="gradient-ball large" id="the-ball"> </div>
 <!--	<div class="gradient-ball" style="height:100vw !important;width:100vw !important;margin-top:50vh;margin-left: -20vw;"> </div>-->
 <!--	<div class="gradient-ball" style="height:800px !important;width:600px !important;margin-top:-20vh;margin-left: -10vw;"> </div>-->
 	<div class="top-nav-wrapper" style="height:var(--top-navbar-height)"><div class="top-nav"><div class="top-nav-entry active"><a href="">website</a></div><div class="top-nav-entry inactive"><a href="">blog</a></div></div></div>

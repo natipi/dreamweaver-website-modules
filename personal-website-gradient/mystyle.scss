@@ -27,8 +27,8 @@ p {
 /*-------------------------------------------*/
 
 body {
-	background: radial-gradient(30% 55.51% at 94% 96%, #FFD3C7 0%, rgba(255, 211, 200, 0.04) 100%), rgba(255,235,225,0.65);
-//	background-color: rgba(255,235,225,0.65);
+//	background: radial-gradient(30% 55.51% at 94% 96%, #FFD3C7 0%, rgba(255, 211, 200, 0.04) 100%), rgba(255,235,225,0.65);
+	background-color: rgba(255,235,225,0.65);
 	background-attachment: fixed;
     -webkit-animation: fadeIn 1s;
     -moz-animation: fadeIn 1s;
@@ -43,6 +43,15 @@ body {
 @keyframes fadeIn { 0% {  opacity: 0; } 100% { opacity: 1; } }
 @-moz-keyframes fadeIn { 0% {  opacity: 0; } 100% { opacity: 1; } }
 @-webkit-keyframes fadeIn { 0% {  opacity: 0; } 100% { opacity: 1; } }
+
+.single-gradient {
+	content: '';
+	height: 200vh; width:100vw;
+	position:absolute;
+	background: radial-gradient(30% 55.51% at 94% 43%, #FFD3C7 0%, rgba(255, 211, 200, 0.04) 100%), rgba(255,235,225,0.65);
+	filter:blur(40px);
+	z-index:-1;
+}
 
 /*-------------------------------------------*/
 /*-------------- MISCELLANEOUS --------------*/
@@ -65,34 +74,44 @@ body {
 	width:100%;
 }
 
-.max-width {
+.max-width, .max-width-gone {
     max-width: 85% !important;
     width: 600px !important;
     padding: 0 !important;
 	margin-left:auto;
 	margin-right: auto;
+	transition: all 1s ease;
+}
+
+.max-width {
+	-webkit-animation: fadeInLeft 1s;
+    -moz-animation: fadeInLeft 1s;
+    animation: fadeInLeft 1s;
+//	opacity:1;
+}
+
+.max-width-gone {
+	-webkit-animation: fadeOutRight 1s;
+    -moz-animation: fadeOutRight 1s;
+    animation: fadeOutRight 1s;
 }
 
 
 .sub-page {
-	z-index:-1;
+	z-index:1;
 }
 
 .static-renderer.mobile .super-content{padding-left:calc(env(safe-area-inset-left) + 24px);padding-right:calc(env(safe-area-inset-right) + 24px);padding-bottom:180px}
 @media (max-width:546px){.super-content{padding-left:calc(env(safe-area-inset-left) + 24px);padding-right:calc(env(safe-area-inset-right) + 24px);padding-bottom:180px}}
 
-.super-content {
-    -webkit-animation: fadeInLeft 1s;
-    -moz-animation: fadeInLeft 1s;
-    animation: fadeInLeft 1s;
-    padding: 0 0 60px;
-/*	padding: 0 0 ;*/
-/*	width:50%;*/
-}
 
-@keyframes fadeInLeft { 0% { transform: translate3d(-40px,0,0); } 100% { transform: translate3d(0,0,0); } }
-@-moz-keyframes fadeInLeft { 0% { transform: translate3d(-40px,0,0); } 100% { transform: translate3d(0,0,0); } }
-@-webkit-keyframes fadeInLeft { 0% { transform: translate3d(-40px,0,0); } 100% { transform: translate3d(0,0,0); } }
+@keyframes fadeInLeft { 0% { transform: translate3d(-40px,0,0); } 100% { transform: translate3d(0,0,0); opacity:1; } }
+@-moz-keyframes fadeInLeft { 0% { transform: translate3d(-40px,0,0); } 100% { transform: translate3d(0,0,0); opacity:1;} }
+@-webkit-keyframes fadeInLeft { 0% { transform: translate3d(-40px,0,0); } 100% { transform: translate3d(0,0,0); opacity:1;} }
+
+@keyframes fadeOutRight { 100% { transform: translate3d(40px,0,0); opacity:0; } 0% { transform: translate3d(0,0,0); } }
+@-moz-keyframes fadeOutRight { 100% { transform: translate3d(40px,0,0); opacity:0;} 0% { transform: translate3d(0,0,0); } }
+@-webkit-keyframes fadeOutRight { 100% { transform: translate3d(40px,0,0); opacity:0;} 0% { transform: translate3d(0,0,0); } }
 
 /*-------------------------------------------*/
 /*--------------- TYPOGRAPHY ----------------*/
@@ -311,15 +330,30 @@ p {
 
 .gradient-ball {
 	content:'';
-	height: 400px;
-	width:400px;
-	position:absolute;
+//	height: 400px;
+//	width:400px;
+	position:fixed;
 	background-image: url('gradient-images/grad1.png');
 	background-size: cover;
 	background-repeat: no-repeat;
 	filter: blur(80px);
 	animation: rotate 50s linear infinite, cycle 73s linear infinite;
 	opacity: 0.3;
+	z-index:-1;
+	transition: all 2s ease;
+}
+
+.gradient-ball.large {
+	height:100vw;width:100vw;margin-top:-30vh;margin-left: -20vw;
+}
+
+.gradient-ball.small {
+	height: 400px;
+	width:400px;
+	margin-left:65vw;
+	margin-top:40vh;
+	filter: blur(60px) !important;
+	opacity:0.4 !important;
 }
 
 @keyframes rotate {
