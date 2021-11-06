@@ -1,0 +1,45 @@
+/* CSS Document */
+/* reference: gradient images from Awwwards blog */
+body {
+  background-color: rgba(255, 235, 225, 0.65); }
+
+.gradient-ball {
+  content: '';
+  height: 400px;
+  width: 400px;
+  position: absolute;
+  background-image: url("gradient-images/grad1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(60px);
+  animation: rotate 50s linear infinite, cycle 73s linear infinite;
+  opacity: 0.6; }
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+@keyframes cycle {
+  0%, 100% {
+    background-image: url("gradient-images/grad1.png"); }
+  17% {
+    background-image: url("gradient-images/grad2.png"); }
+  33% {
+    background-image: url("gradient-images/grad3.png"); }
+  49% {
+    background-image: url("gradient-images/grad4.png"); }
+  65% {
+    background-image: url("gradient-images/grad5.png"); }
+  82% {
+    background-image: url("gradient-images/grad6.png"); } }
+@keyframes scale {
+  0%, 100% {
+    height: 400px;
+    width: 400px; }
+  25% {
+    height: 450px;
+    width: 450px; }
+  75% {
+    height: 350px;
+    width: 350px; } }

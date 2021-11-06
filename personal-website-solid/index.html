@@ -13,38 +13,61 @@
 <title>Website</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="myscript.js"></script>
-	<script>
+<script>
 	$(document).ready(function(){
-		$(".nav a").hover(function(){
-			$(document.body).not("#protected").css("color", "rgba(0,0,0,0.3)");
-			$("a").not(this).css("-webkit-text-stroke-color", "rgba(0,0,0,0.3)");
+		$(".nav span").hover(function(){
+			$(document.body).not("#protected").css("color", "rgba(0,0,0,0.2)");
+			$(".nav span").not(this).css("-webkit-text-stroke-color", "rgba(0,0,0,0.2)");
 			$(this).css("color", "black");
 				}, function(){
 			$(document.body).css("color", "black");
-			$("a").not(this).css("-webkit-text-stroke-color", "black");
+			$(".nav span").not(this).css("-webkit-text-stroke-color", "black");
 			$(this).css("color", "transparent");
+		});
+		
+		$(".sub-page").css('padding-top', $("#about-content").offset().top);
+		
+		$("#include-CV").load("CV.html"); 
+		
+		$(".nav span").click(function(){
+			$(".main").css("opacity", "0");
+			$("#CV").css("opacity", "1");
+//			console.log($(`#{$(this).attr("content")}`).innerHTML)
 		});
 	});
 </script>
 </head>
 
 <body>
-	<div class="top-nav-wrapper" style="height:100px"><div class="top-nav"><div class="top-nav-entry active"><a href="">website</a></div><div class="top-nav-entry inactive"><a href="">blog</a></div></div></div>
-	<div class = "super-content max-width">
-		<h1>I'm <span class="protected">Natalia Pacheco Tallaj</span> — a second year math PhD at MIT. </h1>
+	<div class="top-nav-wrapper" style="height:var(--top-navbar-height)"><div class="top-nav"><div class="top-nav-entry active"><a href="">website</a></div><div class="top-nav-entry inactive"><a href="">blog</a></div></div></div>
+	<div class="main" id="about">
+	<div class="vert-center">
+	<div class = "max-width" id="about-content">
+		<h1>I'm <span class="protected" style="color:#D18168">Natalia Pacheco Tallaj</span> — a second year math PhD at MIT. </h1>
 		<p>My advisors are Mike Hopkins & Soren Galatius. I'm interested in K-theory and in homotopy theory techniques within manifold topology. In my free time, I blog about math, about language-learning, and make sites.</p>
 		<div class="nav">
 <!--			<div style="--i:0" onMouseOver="document.documentElement.style.setProperty('--text-color', '#bbbbbb')" onMouseOut="document.documentElement.style.setProperty('--text-color', 'black')">-->
 			<div>
-				<a href="CV.html" content="CV">CV</a>
+				<span content="CV">CV</span>
 			</div>
 			<div style="--i:1">
-				<a href="" content="Research">Research & Notes</a>
+				<span content="Research">Research & Notes</span>
 			</div>
 			<div style="--i:2">
-				<a href="" content="Resources">Etc.</a>
+				<span content="Resources">Etc.</span>
 			</div>
 		</div>
 	</div>
+	</div>
+	</div>
+	
+	<div class="main sub-page" id="CV" style="z-index:-3 !important; opacity:0;">
+<!--	<div class="" style="">-->
+	<div class = "max-width" id="include-CV">
+	</div>
+<!--	</div>-->
+	</div>
+	
+<!--	<div class="sub-page">abc</div>-->
 </body>
 </html>

@@ -1,0 +1,35 @@
+/* CSS Document */
+
+.simple-radial-gradient {
+	--translate-x:0px;
+	--translate-y:0px;
+	--animation-duration: 0s;
+	content:'';
+	--gradient-color-1: #FFD3C7;
+	--gradient-color-2: rgba(255, 211, 200, 0.04);
+	height: 400px; 
+	width: 400px; 
+	background: radial-gradient(30% 40% at 50% 50%, var(--gradient-color-1) 0%, var(--gradient-color-2) 100%);
+//	filter: blur(10px);
+	position:absolute;
+	transform: translateX(var(--translate-x)) translateY(var(--translate-y));
+//	transition: transform 0.5s ease;
+	animation: rotate var(--animation-duration) linear infinite;
+	transform-origin: 50% 50%;
+}
+
+@keyframes rotate {
+	50% {
+		transform: translateX(var(--translate-x)) translateY(var(--translate-y)) rotate(360); 
+	} 
+	100% {
+		transform: translateX(var(--translate-x)) translateY(var(--translate-y))
+	}
+}
+
+.gradient-ball {
+	position:absolute;
+//	height:100px;width:100px;
+//	display:flex;
+//	background-color:blue;
+}

@@ -23,21 +23,30 @@ p {
 */
     --font: 'ny', serif !important;
 	--text-color: black;
+	--top-navbar-height:100px;
+//	--padding-top: 0px;
 }
 
 /*-------------------------------------------*/
 /*-------------- FADE ANIMATION -------------*/
 /*-------------------------------------------*/
 
+// second color scheme option:
+// background-color: #FAF6F2;
+// my name in color:#D18168
+
 body {
 //    background: radial-gradient(30% 55.51% at 50% 70%, #FFD3C7 0%, rgba(255, 211, 200, 0.04) 100%),
 //                radial-gradient(30% 80% at 94% 96%, #C8EAFF 0%, rgba(230, 245, 255, 0) 70%),
 //                radial-gradient(44% 80% at 4% 94%, rgba(107, 110, 154, 0.8) 0%, rgba(225, 225, 234, 0) 100%), #FFFFFF;
+	background-color: #FAF6F2;
 //    background: radial-gradient(30% 55.51% at 50% 70%, #FFD3C7 0%, rgba(255, 211, 200, 0.04) 100%),
 //                radial-gradient(30% 80% at 94% 96%, rgba(0, 255, 255, 0.3) 0%, rgba(230, 245, 255, 0) 70%),
 //                radial-gradient(44% 80% at 4% 94%, rgba(107, 110, 154, 0.8) 0%, rgba(225, 225, 234, 0) 100%), #FFFFFF;
-	background-color: #d9e4f5;
-	background-image: linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%);
+//	background-color: #d9e4f5;
+//	background-image: linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%);
+//	background-color: white;
+//	background-image: linear-gradient(315deg, #fefefe 0%, rgba(230,168,255,0.3) 74%);
 //	background-color: #f8f9d2;
 //	background-image: linear-gradient(315deg, #f8f9d2 0%, #e8dbfc 74%);
 //	background-color: #f1dfd1;
@@ -60,15 +69,69 @@ body {
 /*-------------------------------------------*/
 /*-------------- MISCELLANEOUS --------------*/
 /*-------------------------------------------*/
+.main {
+	position:absolute; 
+	top: 0;
+	left: 0;
+//	z-index: -1;
+	display:table;
+	height: 100%;
+	width:100%;
+//	text-align: center;
+//	align-content: center;
+	table-layout: fixed;
+	transition: opacity 0.3s ease;
+}
+
+.vert-center {
+	display:table-cell;
+	vertical-align: middle;
+	width:100%;
+}
 
 .max-width {
+//	vertical-align: middle;
+//	background-color:blue;
     max-width: 85% !important;
     width: 600px !important;
     padding: 0 !important;
+//	display:flex;
+	margin-left:auto;
+	margin-right: auto;
+//	padding: 50px 50px 50px 50px !important;
+//	border: 1px solid black;
+//	box-shadow: 10px 10px 10px rgba(107, 110, 154, 0.3);
 }
 
-.super-content{padding-left:calc(env(safe-area-inset-left) + 96px);padding-right:calc(env(safe-area-inset-right) + 96px);padding-bottom:30vh}
-.super-content.max-width{max-width:900px;margin:auto}
+
+.sub-page {
+	z-index:-1;
+//	padding-top: var(--padding-top);
+//	position:relative;
+//	transform: translateY(calc(-1 * var(--home-main-height)));
+////	top:100px;
+////	display: table;
+////  	margin: 0 auto;
+////	top:100px;
+////	top:100px;
+//	align-self: center;
+////	margin: 100px auto 0px auto;
+////	background-color: #FAF6F2;
+//	z-index: 3;
+//	min-height: 100px;
+//	max-width:900px;
+//	margin:auto;
+}
+
+.super-content{
+//	padding-left:calc(env(safe-area-inset-left) + 96px);
+//	padding-right:calc(env(safe-area-inset-right) + 96px);
+// 	padding-bottom:30vh //added vertical align
+}
+.super-content.max-width{
+//	max-width:900px;
+	
+}
 .static-renderer.mobile .super-content{padding-left:calc(env(safe-area-inset-left) + 24px);padding-right:calc(env(safe-area-inset-right) + 24px);padding-bottom:180px}
 @media (max-width:546px){.super-content{padding-left:calc(env(safe-area-inset-left) + 24px);padding-right:calc(env(safe-area-inset-right) + 24px);padding-bottom:180px}}
 
@@ -123,7 +186,7 @@ body {
 	display:flex;
 	justify-content: space-between;
 }
-.nav a {
+.nav span {
 //	--animation-duration:1.2s;
     position: relative;
 	display: inline-block;
@@ -189,7 +252,8 @@ h1, h2, h3 {
 }
 
 h1 {
-    margin-top: 20px;
+//    margin-top: 20px; // added cell display / vertical center
+	margin-top: 0px;
     font-size: 60px;
 }
 

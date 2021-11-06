@@ -15,14 +15,14 @@ p {
       --column-spacing: 30px !important;
   */
   --font: 'ny', serif !important;
-  --text-color: black; }
+  --text-color: black;
+  --top-navbar-height:100px; }
 
 /*-------------------------------------------*/
 /*-------------- FADE ANIMATION -------------*/
 /*-------------------------------------------*/
 body {
-  background-color: #d9e4f5;
-  background-image: linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%);
+  background-color: rgba(255, 235, 225, 0.65);
   background-attachment: fixed;
   -webkit-animation: fadeIn 1s;
   -moz-animation: fadeIn 1s;
@@ -51,19 +51,30 @@ body {
 /*-------------------------------------------*/
 /*-------------- MISCELLANEOUS --------------*/
 /*-------------------------------------------*/
+.main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: table;
+  height: 100%;
+  width: 100%;
+  table-layout: fixed;
+  transition: opacity 0.3s ease; }
+
+.vert-center {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%; }
+
 .max-width {
   max-width: 85% !important;
   width: 600px !important;
-  padding: 0 !important; }
+  padding: 0 !important;
+  margin-left: auto;
+  margin-right: auto; }
 
-.super-content {
-  padding-left: calc(env(safe-area-inset-left) + 96px);
-  padding-right: calc(env(safe-area-inset-right) + 96px);
-  padding-bottom: 30vh; }
-
-.super-content.max-width {
-  max-width: 900px;
-  margin: auto; }
+.sub-page {
+  z-index: -1; }
 
 .static-renderer.mobile .super-content {
   padding-left: calc(env(safe-area-inset-left) + 24px);
@@ -145,7 +156,7 @@ body {
   display: flex;
   justify-content: space-between; }
 
-.nav a {
+.nav span {
   position: relative;
   display: inline-block;
   font-family: var(--font);
@@ -190,7 +201,7 @@ h1, h2, h3 {
   font-weight: 100; }
 
 h1 {
-  margin-top: 20px;
+  margin-top: 0px;
   font-size: 60px; }
 
 h2 {
@@ -205,7 +216,8 @@ p {
 .top-nav-wrapper {
   width: 100vw;
   background-color: transparent;
-  display: table; }
+  display: table;
+  position: fixed; }
 
 .top-nav {
   width: 100vw;
@@ -313,6 +325,36 @@ p {
   white-space: nowrap;
   text-align: right; }
 
+.gradient-ball {
+  content: '';
+  height: 400px;
+  width: 400px;
+  position: absolute;
+  background-image: url("gradient-images/grad1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(60px);
+  animation: rotate 50s linear infinite, cycle 73s linear infinite;
+  opacity: 0.3; }
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+@keyframes cycle {
+  0%, 100% {
+    background-image: url("../gradient-experiment-2/gradient-images/grad1.png"); }
+  17% {
+    background-image: url("../gradient-experiment-2/gradient-images/grad2.png"); }
+  33% {
+    background-image: url("../gradient-experiment-2/gradient-images/grad3.png"); }
+  49% {
+    background-image: url("../gradient-experiment-2/gradient-images/grad4.png"); }
+  65% {
+    background-image: url("../gradient-experiment-2/gradient-images/grad5.png"); }
+  82% {
+    background-image: url("../gradient-experiment-2/gradient-images/grad6.png"); } }
 /*-------------------------------------------*/
 /*----------------- MOBILE ------------------*/
 /*-------------------------------------------*/

@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="../gradient-experiments-1/gradient-experiments.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gradient Experiments</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+//	function animate() {
+//		let position = 0; 
+//		$(".gradient-ball").css("transform", `translateX(${position}px)`);
+//		requestAnimationFrame(animate);
+//	}
+//	animate();
+</script>
+</head>
+
+<body>
+	<div class="gradient-ball">
+		<div class="simple-radial-gradient" id="#grad1"></div>
+		<div class="simple-radial-gradient" id="#grad2" style="--gradient-color-1:#C8EAFF;--gradient-color-2:rgba(230, 245, 255, 0.1);filter:blur(20px);--translate-x:100px;--animation-duration:21s;"></div>
+		<div class="simple-radial-gradient" id="#grad3" style="--gradient-color-1:rgba(107, 110, 154, 0.7);--gradient-color-2:rgba(225, 225, 234, 0.1);filter:blur(40px);--translate-x:50px;--translate-y:150px;--animation-duration:17s;z-index:-1"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="mystyle.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<!-- from my MIT adobe fonts acct: -->
+<link rel="stylesheet" href="https://use.typekit.net/pha3oju.css">
+<link rel="stylesheet" data-href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Website</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="myscript.js"></script>
+<script>
+	$(document).ready(function(){
+		$(".nav span").hover(function(){
+			$(document.body).not("#protected").css("color", "rgba(0,0,0,0.2)");
+			$(".nav span").not(this).css("-webkit-text-stroke-color", "rgba(0,0,0,0.2)");
+			$(this).css("color", "black");
+				}, function(){
+			$(document.body).css("color", "black");
+			$(".nav span").not(this).css("-webkit-text-stroke-color", "black");
+			$(this).css("color", "transparent");
+		});
+		
+		$(".sub-page").css('padding-top', $("#about-content").offset().top);
+		
+		$("#include-CV").load("CV.html"); 
+		
+		$(".nav span").click(function(){
+			let vh = $(window).height();
+//			$(".main").css("opacity", "0");
+//			$("#CV").css("opacity", "1");
+			window.scroll(0, 1.25 * vh);
+//			console.log($(`#{$(this).attr("content")}`).innerHTML)
+		});
+		
+		
+		
+	});
+	
+	$(document).scroll(function(){
+		let top = $(document).scrollTop();
+		let topshift = 0;
+		let vh = $(window).height();
+		let vw = $(window).width();
+		let ratio = vw / vh; 
+		let h1 = (0.7 * vh - top) / vh * 100; 
+		let h2 = (0.96 * vh - top) / vh * 100;
+		let h3 = 94;
+//		let h3 = (0.94 * vh - top) / vh * 100;
+		let h4 = (1.5 * vh - top) / vh * 100;
+		let w1 = 50; 
+		let w2 = 94;
+		let w3 = 4;
+		console.log(w1)
+		if (top > 150) {
+			topshift = top - 150;
+			h3 = (0.94 * vh + ((topshift - 300)^2 + 150^2) / 150)/vh * 100;
+			w1 = Math.min((.50 * vw + topshift * topshift / 150) / vw * 100, 90); 
+			w2 = Math.min((.94 * vw + topshift / 150) / vw * 100, 85);
+			w3 = Math.min((.04 * vw + topshift * topshift / 15) / vw * 100, 87);
+		}
+		if (top > 450) {
+			h1 = (0.7 * vh - 250) / vh * 100; 
+			h2 = (0.96 * vh - 250) / vh * 100;
+			h3 = (0.94 * vh - 250) / vh * 100;
+			h4 = (1.5 * vh - 250) / vh * 100;
+//			w1 = (.5 * vw + ratio * (top - 250)) / vw * 100; 
+//			w2 = (.94 * vw + ratio * (top - 250)) / vw * 100;
+//			w3 = (.05 * vw + ratio * (top - 250)) / vw * 100;
+		}
+		
+		let bg = `radial-gradient(30% 55.51% at ${w1}% ${h1}%, #FFD3C7 0%, rgba(255, 211, 200, 0.04) 100%),
+                radial-gradient(30% 80% at ${w2}% ${h2}%, #C8EAFF 0%, rgba(230, 245, 255, 0) 70%),
+                radial-gradient(44% 80% at ${w3}% ${h3}%, rgba(107, 110, 154, 0.8) 0%, rgba(225, 225, 234, 0) 100%), linear-gradient(white 0%, #FBF2F0 ${h4}%), #FFFFFF`
+		$("body").css("background", bg);
+		$("body").css("background-attachment", "fixed");
+
+		if (top < 100) {
+			$("#about").css("opacity", "1");
+			$("#about").css("transform", `translateY(0px) translateX(0px)`)
+		}
+		else if (top > 200) {
+			$("#about").css("opacity", "0");
+		}
+		else {
+			$("#about").css("transform", `translateX(${top - 100}px)`);
+			$("#about").css("opacity", `${1 - (top - 40)/40}`);
+		}
+		
+		if (top < 150) {
+			$("#CV").css("opacity", "0")
+		}
+		else if (top < 250) {
+			$("#CV").css("transform", `translateX(${(top - 250)}px)`);
+			$("#CV").css("opacity", `${(top - 300)/100}`);
+		}
+		else { 
+			$("#CV").css("opacity", "1")
+		}
+	});
+</script>
+</head>
+
+<body>
+<!--	<div class="gradient-ball" style="height:800px !important;width:600px !important;margin-top:-20vh;margin-left: 2vw;"> </div>-->
+	<div class="top-nav-wrapper" style="height:var(--top-navbar-height)"><div class="top-nav"><div class="top-nav-entry active"><a href="">website</a></div><div class="top-nav-entry inactive"><a href="">blog</a></div></div></div>
+	<div class = ""></div>
+	<div class="main about" id="about">
+	<div class="vert-center">
+	<div class = "max-width" id="about-content">
+		<h1>I'm <span class="protected" style="">Natalia Pacheco Tallaj</span> — a second year math PhD at MIT. </h1>
+		<p>My advisors are Mike Hopkins & Soren Galatius. I'm interested in K-theory and in homotopy theory techniques within manifold topology. In my free time, I blog about math, about language-learning, and make sites.</p>
+		<div class="nav">
+<!--			<div style="--i:0" onMouseOver="document.documentElement.style.setProperty('--text-color', '#bbbbbb')" onMouseOut="document.documentElement.style.setProperty('--text-color', 'black')">-->
+			<div>
+				<span content="CV">CV</span>
+			</div>
+			<div style="--i:1">
+				<span content="Research">Research & Notes</span>
+			</div>
+			<div style="--i:2">
+				<span content="Resources">Etc.</span>
+			</div>
+		</div>
+	</div>
+	</div>
+	</div>
+	
+	<div class="main sub-page" id="CV" style="z-index:-3 !important; opacity:0;">
+<!--	<div class="" style="">-->
+	<div class = "max-width" id="include-CV">
+	</div>
+<!--	</div>-->
+	</div>
+	<div style="height:400vw"></div>
+	
+<!--	<div class="sub-page">abc</div>-->
+</body>
+</html>
