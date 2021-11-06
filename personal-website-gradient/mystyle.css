@@ -10,10 +10,6 @@ p {
 /*---------------- VARIABLES ----------------*/
 /*-------------------------------------------*/
 :root {
-  /*
-      --transition: all .3s cubic-bezier(0.8,0.04,0.4,1) !important;
-      --column-spacing: 30px !important;
-  */
   --font: 'ny', serif !important;
   --text-color: black;
   --top-navbar-height:100px; }
@@ -115,42 +111,6 @@ body {
 .protected {
   color: black; }
 
-@keyframes glitchy {
-  0% {
-    transform: translate(-2px, 2px); }
-  25% {
-    transform: translate(-2px, -2px); }
-  50% {
-    transform: translate(2px, 2px); }
-  75% {
-    transform: translate(2px, -2px); }
-  100% {
-    transform: translate(-2px, 2px); } }
-@keyframes glitchy-automate {
-  0% {
-    transform: translate(-2px, 2px); }
-  6% {
-    transform: translate(-2px, -2px); }
-  12% {
-    transform: translate(2px, 2px); }
-  19% {
-    transform: translate(2px, -2px); }
-  25% {
-    transform: translate(0px, 0px); } }
-@keyframes whiten-on-glitch {
-  0% {
-    -webkit-text-stroke-color: transparent; }
-  50% {
-    -webkit-text-stroke-color: transparent; }
-  100% {
-    -webkit-text-stroke-color: transparent; } }
-@keyframes whiten-on-glitch-automate {
-  0% {
-    -webkit-text-stroke-color: transparent; }
-  25% {
-    -webkit-text-stroke-color: transparent; }
-  30% {
-    -webkit-text-stroke-color: var(--text-color); } }
 .nav {
   margin-top: 20px;
   display: flex;
@@ -161,12 +121,10 @@ body {
   display: inline-block;
   font-family: var(--font);
   text-decoration: none;
-  /*    font-weight: 100;*/
   font-size: 45px;
   color: transparent;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: var(--text-color);
-  /*	float:left;*/
   z-index: 1;
   transition: color 0.3s ease; }
 
@@ -195,7 +153,6 @@ body {
   .text-link:hover:after {
     animation: glitchy 0.3s ease infinite reverse; }
 
-/*glitch ref https://codepen.io/origine/pen/qaKkPE */
 h1, h2, h3 {
   font-family: var(--font);
   font-weight: 100; }
@@ -250,26 +207,6 @@ p {
   .top-nav a:hover {
     color: black; }
 
-@keyframes unravel {
-  0% {
-    -webkit-clip-path: polygon(0% 0%, 50% 50%, 0% 0.1%, 0% 0%);
-    clip-path: polygon(0% 0%, 50% 50%, 0% 0.1%, 0% 0%); }
-  12% {
-    -webkit-clip-path: polygon(0% 0%, 50% 50%, 0% 50%, 0% 0%); }
-  25% {
-    -webkit-clip-path: polygon(0% 0%, 50% 50%, 0% 100%, 0% 0%); }
-  37% {
-    -webkit-clip-path: polygon(0% 0%, 50% 50%, 50% 100%, 0% 100%, 0% 0%); }
-  50% {
-    -webkit-clip-path: polygon(0% 0%, 50% 50%, 100% 100%, 0% 100%, 0% 0%); }
-  62% {
-    -webkit-clip-path: polygon(0% 0%, 50% 50%, 100% 50%, 100% 100%, 0% 100%, 0% 0%); }
-  75% {
-    -webkit-clip-path: polygon(0% 0%, 50% 50%, 100% 0%, 100% 100%, 0% 100%, 0% 0%); }
-  87% {
-    -webkit-clip-path: polygon(0% 0%, 50% 50%, 50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%); }
-  100% {
-    -webkit-clip-path: polygon(0% 0%, 50% 50%, 0.1% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%); } }
 .button-border {
   background-clip: border-box;
   background-color: white;
